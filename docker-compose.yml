@@ -1,0 +1,22 @@
+version: '3'
+
+
+services:
+  nsqd:
+    image: nsqio/nsq:latest
+    expose:
+      - "4150"
+      - "4151"
+    command: "nsqd -max-msg-size 5000000000 -data-path /tmp"
+
+  goapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/go/src/go-nsq-test
+    depends_on:
+      - nsqd
+    links:
+      - nsqd
+
