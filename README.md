@@ -1,11 +1,10 @@
-======
 This is demo case of broken NSQD compression.
+======
 
 
-When using SNAPPY on very big data or Deflate (lvl3 compression) on relativelly small data- NSQD goes with `IO error - unexpected EOF` error.
+When using _Snappy_ on very big data or _Deflate_ (lvl3 compression) on relativelly small data- NSQD goes with `IO error - unexpected EOF` error.
 
-###
-Try yourself.
+## Try yourself.
 
 Simply clone this and run from your shell: `docker-compose up`
 
