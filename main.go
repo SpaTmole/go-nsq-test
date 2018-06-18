@@ -11,8 +11,8 @@ import (
 
 const CHANNEL = "TestChann"
 const TOPIC = "TestTopic"
-const USE_DEFLATE = true
-const USE_SNAPPY = false
+const USE_DEFLATE = false
+const USE_SNAPPY = true
 const DEFLATE_LVL = 3
 const KB = 1024
 const MB = 1024 * KB
@@ -95,7 +95,8 @@ func main() {
 		2 * MB,
 		5 * MB,
 		10 * MB,
-		90 * MB, // Failed in my case.
+		90 * MB,   // Started failing in my case.
+		1000 * MB, // SNAPPY needed much bigger messages.
 	}
 	consumer, err := nsq.NewConsumer(TOPIC, CHANNEL, config())
 	if err != nil {
